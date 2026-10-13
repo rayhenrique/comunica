@@ -1,0 +1,18 @@
+@theme static {
+  --color-primary: #17665b;
+  --color-ink: #203344;
+  --color-muted: #516675;
+  --color-background: #f3f6f8;
+  --color-surface: #ffffff;
+  --color-border: #cbd6df;
+  --color-success: #195c3a;
+  --color-warning: #855c11;
+  --color-danger: #9c3333;
+  --font-body: "Segoe UI";
+  --font-display: "Trebuchet MS";
+  --font-mono: "Consolas";
+  --radius-DEFAULT: 0.75rem;
+  --radius-control: 0.5rem;
+  --spacing-page-max: 76rem;
+  --spacing-section-gap: 2rem;
+}

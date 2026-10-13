@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import "./theme.generated.css";
+
+@source "../views/**/*.blade.php";
+@source "../js/**/*.js";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+
+@theme inline {
+    --font-sans: var(--font-body), Arial, sans-serif;
+}
+
+:root {
+    --z-dialog: 600;
+    --scrollbar-thumb: var(--color-border);
+    --scrollbar-track: var(--color-background);
+    --scrollbar-hover: var(--color-muted);
+    --scrollbar-active: var(--color-primary);
+}
+* { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+*::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 6px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+*::-webkit-scrollbar-thumb:active { background: var(--scrollbar-active); }
+html { scrollbar-gutter: stable; }
+body { @apply bg-background text-ink font-sans antialiased; }
+h1,h2,h3,.brand { font-family: var(--font-display), var(--font-sans); }
+button,a,summary,select { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+[x-cloak] { display: none; }
+.page-width { max-width: var(--spacing-page-max); margin-inline: auto; padding-inline: 1.5rem; }
+.panel { @apply rounded-xl border border-border bg-surface; }
+.button { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-border px-4 py-2 text-sm font-semibold transition-colors; }
+.button:hover { background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface)); }
+.button:active { transform: translateY(1px); }
+.button:disabled { opacity: .55; transform: none; }
+.button-primary { @apply border-primary bg-primary text-surface; }
+.button-primary:hover { background: color-mix(in srgb, var(--color-primary) 90%, var(--color-ink)); }
+.button-danger { @apply border-danger bg-danger text-surface; }
+.button-danger:hover { background: color-mix(in srgb, var(--color-danger) 85%, var(--color-ink)); }
+.field { @apply block min-h-11 w-full rounded-control border border-border bg-surface px-3 py-2.5 text-base text-ink; }
+.field[aria-invalid="true"] { border-color: var(--color-danger); }
+.field-help { @apply min-h-5 text-xs leading-5 text-muted; }
+.field-error { @apply text-sm text-danger; }
+textarea.field { resize: none; min-height: 8rem; max-height: 22rem; overflow-y: auto; }
+.nav-link { @apply rounded-control px-3 py-2 text-sm font-medium text-muted; }
+.nav-link:hover,.nav-link[aria-current="page"] { @apply bg-background text-primary; }
+.status { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold; background: var(--color-background); }
+.status[data-status="pending"] { color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 9%, var(--color-surface)); }
+.status[data-status="approved"],.status[data-status="rescheduled"] { color: var(--color-success); background: color-mix(in srgb, var(--color-success) 9%, var(--color-surface)); }
+.status[data-status="rejected"] { color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 9%, var(--color-surface)); }
+.status[data-status="cancelled"] { color: var(--color-muted); }
+.data-table { @apply w-full text-left text-sm; }
+.data-table th { @apply border-b border-border bg-background px-5 py-3 text-xs font-semibold text-muted; }
+.data-table td { @apply border-b border-border px-5 py-4 align-top; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:hover { background: color-mix(in srgb, var(--color-background) 50%, var(--color-surface)); }
+.ui-dialog { width: min(36rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); margin: auto; padding: 0; border: 1px solid var(--color-border); border-radius: var(--radius-DEFAULT); background: var(--color-surface); color: var(--color-ink); z-index: var(--z-dialog); box-shadow: 0 20px 70px #20334430; }
+.ui-dialog::backdrop { background: #20334470; }
+.ui-dialog[open] { display: flex; flex-direction: column; overflow: hidden; }
+.ui-dialog > header,.ui-dialog > footer { flex-shrink: 0; }
+.ui-dialog-body { flex: 1 1 auto; min-height: 0; max-height: calc(100dvh - 10rem); overflow-y: auto; padding: 1.5rem; }
+.dialog-with-footer .ui-dialog-body { max-height: calc(100dvh - 14rem); }
+.ui-drawer { margin-right: 1rem; width: min(32rem, calc(100% - 2rem)); }
+.calendar-cell { @apply flex min-h-32 flex-col items-stretch gap-2 border-b border-r border-border bg-surface p-3 text-left; }
+.calendar-cell:hover { background: var(--color-background); }
+.calendar-cell[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--color-primary); }
+.event-strip { @apply truncate rounded-sm border-l-2 border-primary bg-background px-2 py-1 text-xs font-medium text-ink; }
+.event-strip[data-type="art"] { border-color: var(--color-muted); }
+.event-strip[data-type="both"] { border-color: var(--color-warning); }
+.page-heading { @apply text-3xl font-bold tracking-tight; }
+.eyebrow { @apply text-xs font-bold uppercase tracking-widest text-primary; }
+.spinner { display:inline-block; width:1rem; height:1rem; border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation:spin .8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.skip-link { position:absolute;left:1rem;top:-10rem;z-index:var(--z-dialog);background:var(--color-surface);padding:1rem; }
+.skip-link:focus { top:1rem; }
+@media(max-width:767px) { .page-width { padding-inline:1rem; } .ui-dialog,.ui-drawer { width:calc(100% - 1rem);margin:auto;max-height:calc(100dvh - 1rem); } .page-heading { font-size:1.75rem; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms;transition-duration:.01ms;scroll-behavior:auto; } }
+@media(forced-colors:active) { * { scrollbar-color:auto; } :focus-visible { outline-color:Highlight; } .status,.calendar-cell[aria-pressed="true"] { border:1px solid CanvasText; } }

@@ -1,0 +1,12 @@
+# Decisões de requisitos
+
+## 13/10/2026 — fase 4
+
+1. Antecedência mínima: o usuário confirmou **48 horas corridas**, incluindo fins de semana e feriados. PRD mencionava 48 horas, MVP exigia úteis e TASKS combinava úteis com now()->addHours(48). PRD RN01, MVP e TASKS 4.3 foram alinhados à resposta explícita, preservando o restante dos documentos.
+2. Cobertura: o usuário confirmou que **qualquer coverage/both simultânea gera alerta**, mesmo em locais diferentes. O PRD mencionava cobertura externa sem campo para distinguir interna/externa. RF05 e TASKS 4.1 foram alinhados sem alterar o schema. Choque de local também exige sobreposição, independentemente do tipo de demanda.
+
+Critério operacional de intervalos: início inclusivo e término exclusivo. Um evento que começa exatamente quando outro termina não se sobrepõe; inclui-se a interseção parcial ou contenção. Este critério é documentado para os filtros e alertas e coberto por testes. Conflitos são avisos e não impedem aprovação soberana.
+
+## 13/10/2026 — fase 6
+
+O usuário autorizou **Pest 4**, em substituição à versão 3 prevista no título da fase 6. Pest 3 exige PHPUnit 11 e conflita com PHPUnit 12 instalado. Pest 4 utiliza PHPUnit 12 e pest-plugin-laravel 4.1 aceita Laravel 13. TASKS foi alinhado à decisão, sem alterar os quatro critérios de teste ou a stack da aplicação. A suíte PHPUnit existente será preservada e executada pelo Pest juntamente com os novos testes funcionais.
