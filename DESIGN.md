@@ -63,7 +63,7 @@ A referência é um quadro de agenda de uma assessoria institucional: datas como
 
 A assinatura é o calendário com faixas discretas por tipo de demanda e números de dias destacados. Formulários e decisões permanecem familiares. Não usar gradientes decorativos, imagens sem função, dashboards de métricas inventadas ou excesso de cartões.
 
-Este documento é a fonte de tokens. `node scripts/export-design.mjs` usa `designmd export --format css-tailwind` e adapta o bloco para `@theme static`, gerando resources/css/theme.generated.css. Essa adaptação preserva tokens consumidos em CSS sem utilities. app.css importa esse arquivo, adiciona fallbacks de fontes e aplica aliases. Não editar o arquivo gerado. UX-CONTRACT.md é o contrato comportamental.
+Este documento é a fonte de tokens. `node scripts/export-design.mjs` usa o exportador local fixado no package.json/lockfile com `export --format css-tailwind` e adapta o bloco para `@theme static`, gerando resources/css/theme.generated.css. Essa adaptação preserva tokens consumidos em CSS sem utilities. app.css importa esse arquivo, adiciona fallbacks de fontes e aplica aliases. Não editar o arquivo gerado. UX-CONTRACT.md é o contrato comportamental.
 
 ## Colors
 
@@ -75,11 +75,11 @@ Display é usado nos títulos; body nos controles e textos; mono nos horários. 
 
 ## Layout
 
-Cabeçalho horizontal e conteúdo central de até page-max. Ritmo de 0.5rem/1rem/section-gap. Formulários rolam no documento, sem altura fixa. Abaixo de 768px o calendário vira lista com seletor de dia; tabelas internas mantêm colunas em região horizontal visível. Dialogs limitados à viewport com corpo rolável.
+Cabeçalho horizontal e conteúdo central de até page-max. Ritmo de 0.5rem/1rem/section-gap. Formulários rolam no documento, sem altura fixa. Abaixo de 768px o calendário vira lista com seletor de dia; triagem e histórico usam cards semânticos com todos os dados e ações; desktop preserva tabelas. Dialogs limitados à viewport com corpo rolável.
 
 ## Elevation & Depth
 
-Bordas e superfícies claras definem hierarquia. Sombra reservada a dialogs. Sem sombras em cada linha. Feedback ocupa região estável e não desloca os botões principais.
+Bordas e superfícies claras definem hierarquia. Sombra reservada a dialogs. Sem sombras em cada linha. Feedback vazio não reserva altura; botões mantêm dimensões ao carregar. Ajuda de campo existe somente quando há texto; bordas de campos usam muted para contraste.
 
 ## Shapes
 
@@ -99,3 +99,5 @@ Movimento restrito a feedback, transições de 120ms, desativado em prefers-redu
 - Use os mesmos rótulos/status e primitive de diálogo em todas as telas.
 - Não exponha briefing ou dados de moderação no calendário público.
 - Não use alert/confirm/prompt nativos nem carregue Alpine duas vezes.
+
+Documentos complementares: DESIGN-SYSTEM.md, UI-UX-GUIDELINES.md e DESIGN-LOCK.md; sem fonte concorrente de tokens. Refinamento aprovado em 13/10/2026: título do calendário até 40px, faixas com horário separado e título em duas linhas; reagendado distinguido por contorno.

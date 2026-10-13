@@ -3,5 +3,5 @@
 @if($href)
     <a href="{{ $href }}" {{ $attributes->class([$classes]) }}>{{ $slot }}</a>
 @else
-    <button type="{{ $type }}" {{ $attributes->class([$classes]) }} wire:loading.attr="disabled">{{ $slot }}</button>
+    <button type="{{ $type }}" {{ $attributes->class([$classes]) }} wire:loading.attr="disabled" wire:loading.class="is-loading">{{ $slot }}</button>
 @endif

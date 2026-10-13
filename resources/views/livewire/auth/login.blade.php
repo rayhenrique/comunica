@@ -1,4 +1,4 @@
-<section class="mx-auto grid max-w-4xl gap-8 py-6 md:grid-cols-2 md:gap-16 md:py-12">
+<section class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2 md:gap-12 md:py-6">
     <div class="self-center">
         <p class="eyebrow">Assessoria de Comunicação</p>
         <h1 class="mt-4 text-4xl font-bold leading-tight">Uma agenda.<br>Todos os setores.</h1>
@@ -13,7 +13,7 @@
             <x-ui.field name="email" label="E-mail" type="email" wire:model="email" autocomplete="username" required />
             <div x-data="{ showPassword: false }">
                 <x-ui.field name="password" label="Senha" type="password" x-bind:type="showPassword ? 'text' : 'password'" wire:model="password" autocomplete="current-password" required />
-                <button type="button" class="mt-1 text-xs font-semibold text-primary hover:underline" x-on:click="showPassword = !showPassword" x-bind:aria-pressed="showPassword" x-text="showPassword ? 'Ocultar senha' : 'Mostrar senha'">Mostrar senha</button>
+                <button type="button" class="inline-flex min-h-11 items-center rounded-control px-2 text-sm font-semibold text-primary hover:underline" x-on:click="showPassword = !showPassword" x-bind:aria-pressed="showPassword" x-text="showPassword ? 'Ocultar senha' : 'Mostrar senha'">Mostrar senha</button>
             </div>
             <x-ui.feedback />
             <x-ui.button type="submit" intent="primary" class="w-full" wire:target="login">Entrar <span aria-hidden="true">→</span></x-ui.button>

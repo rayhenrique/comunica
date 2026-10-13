@@ -11,7 +11,7 @@
     <header class="border-b border-border bg-surface">
         <div class="page-width flex flex-wrap items-center justify-between gap-4 py-5">
             <a href="{{ url('/calendario') }}" class="brand text-2xl font-bold text-primary">comunica<span class="ml-1 inline-block h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span></a>
-            <div class="flex items-center gap-4 text-sm"><span>{{ auth()->user()?->name }}</span>
+            <div class="flex min-w-0 max-w-full items-center gap-3 text-sm"><span class="min-w-0 break-words [overflow-wrap:anywhere]">{{ auth()->user()?->name }}</span>
                 <form method="POST" action="{{ url('/logout') }}" novalidate>@csrf<x-ui.button type="submit">Sair</x-ui.button></form>
             </div>
         </div>

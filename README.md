@@ -1,6 +1,6 @@
 # Comunica
 
-Sistema institucional de solicitações de apoio à Comunicação e calendário público. **Versão 1.0.0**: MVP com as fases 1–6 concluídas.
+Sistema institucional de solicitações de apoio à Comunicação e calendário público. **Versão 1.1.0**: MVP com as fases 1–6 concluídas e refinamento responsivo aprovado.
 
 ## Funcionalidades
 
@@ -23,6 +23,7 @@ O MVP não inclui notificações externas, anexos, distribuição de tarefas da 
 | [Regras](RULES.md) e [AGENTS](AGENTS.md) | Convenções obrigatórias de desenvolvimento |
 | [Decisões](DECISIONS.md) | Prazo, conflitos e compatibilidade Pest |
 | [Design](DESIGN.md) e [Contrato de UX](UX-CONTRACT.md) | Tokens visuais e componentes compartilhados |
+| [Sistema visual](DESIGN-SYSTEM.md), [Diretrizes](UI-UX-GUIDELINES.md) e [Proteção](DESIGN-LOCK.md) | Aplicação da identidade e revisão obrigatória de mudanças |
 | [Relatório da fase 5](PHASE-5-REPORT.md) | Implementação das telas e QA de navegador |
 | [Relatório da fase 6](PHASE-6-REPORT.md) | Testes de aceite e dependências |
 
@@ -111,9 +112,11 @@ php vendor/bin/pint --test --preset=psr12
 composer validate --strict
 composer audit
 npm run build
+npm run design:check
+npm run design:test
 ```
 
-Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação da fase 6 passou com **94 testes e 614 assertions**. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
+Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação do refinamento passou com **95 testes e 639 assertions**, além de sete verificações de proteção de design. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
 
 A interface foi validada em Chrome no Windows, incluindo viewports mobile simulados. Não há certificação de acessibilidade, teste de carga ou validação em todos os navegadores. As evidências e limitações estão nos relatórios.
 
@@ -129,7 +132,7 @@ A interface foi validada em Chrome no Windows, incluindo viewports mobile simula
 
 ## Controle de versão
 
-O Git local utiliza a branch main. A versão de referência é v1.0.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. Não há remoto nem push automático.
+O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão local de referência é v1.1.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. Novas versões só são enviadas com autorização; este refinamento não foi publicado automaticamente.
 
 ```powershell
 git status --short

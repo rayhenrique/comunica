@@ -4,9 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "design:check": "node scripts/check-design.mjs",
+    "design:test": "node --test scripts/check-design.test.mjs",
+    "design:export": "node scripts/export-design.mjs"
   },
   "devDependencies": {
+    "@google/design.md": "0.4.0",
     "@tailwindcss/vite": "^4.3.3",
     "axios": "^1.11.0",
     "concurrently": "^9.0.1",

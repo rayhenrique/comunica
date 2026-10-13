@@ -30,8 +30,9 @@ button:disabled { cursor: not-allowed; }
 :focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 [x-cloak] { display: none; }
 .page-width { max-width: var(--spacing-page-max); margin-inline: auto; padding-inline: 1.5rem; }
-.panel { @apply rounded-xl border border-border bg-surface; }
-.button { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-border px-4 py-2 text-sm font-semibold transition-colors; }
+.panel { @apply border border-border bg-surface; border-radius: var(--radius-DEFAULT); }
+.button { @apply relative inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-border px-4 py-2 text-sm font-semibold transition-colors; }
+.button.is-loading::after { content: ''; position: absolute; right: .2rem; top: .2rem; width: .5rem; height: .5rem; border: 1px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; }
 .button:hover { background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface)); }
 .button:active { transform: translateY(1px); }
 .button:disabled { opacity: .55; transform: none; }
@@ -39,9 +40,11 @@ button:disabled { cursor: not-allowed; }
 .button-primary:hover { background: color-mix(in srgb, var(--color-primary) 90%, var(--color-ink)); }
 .button-danger { @apply border-danger bg-danger text-surface; }
 .button-danger:hover { background: color-mix(in srgb, var(--color-danger) 85%, var(--color-ink)); }
-.field { @apply block min-h-11 w-full rounded-control border border-border bg-surface px-3 py-2.5 text-base text-ink; }
+.field { @apply block min-h-11 w-full rounded-control border border-muted bg-surface px-3 py-2.5 text-base text-ink; }
+.field-compact { @apply py-2; }
 .field[aria-invalid="true"] { border-color: var(--color-danger); }
-.field-help { @apply min-h-5 text-xs leading-5 text-muted; }
+.field-help { @apply text-xs leading-5 text-muted; }
+.feedback-stack > p { margin-block: .75rem; }
 .field-error { @apply text-sm text-danger; }
 textarea.field { resize: none; min-height: 8rem; max-height: 22rem; overflow-y: auto; }
 .nav-link { @apply rounded-control px-3 py-2 text-sm font-medium text-muted; }
@@ -51,6 +54,13 @@ textarea.field { resize: none; min-height: 8rem; max-height: 22rem; overflow-y: 
 .status[data-status="approved"],.status[data-status="rescheduled"] { color: var(--color-success); background: color-mix(in srgb, var(--color-success) 9%, var(--color-surface)); }
 .status[data-status="rejected"] { color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 9%, var(--color-surface)); }
 .status[data-status="cancelled"] { color: var(--color-muted); }
+.status[data-status="rescheduled"] { background: var(--color-surface); box-shadow: inset 0 0 0 1px var(--color-success); }
+.request-card { @apply min-w-0 space-y-3 p-4; overflow-wrap: anywhere; }
+.request-card + .request-card { border-top: 1px solid var(--color-border); }
+.request-card dt { @apply text-xs font-semibold text-muted; }
+.request-card dd { @apply mt-1 text-sm; }
+.calendar-title { @apply text-3xl font-bold tracking-tight; font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.calendar-day-list[aria-pressed="true"] { border-color: var(--color-primary); box-shadow: inset 0 0 0 1px var(--color-primary); }
 .data-table { @apply w-full text-left text-sm; }
 .data-table th { @apply border-b border-border bg-background px-5 py-3 text-xs font-semibold text-muted; }
 .data-table td { @apply border-b border-border px-5 py-4 align-top; }
@@ -60,13 +70,13 @@ textarea.field { resize: none; min-height: 8rem; max-height: 22rem; overflow-y: 
 .ui-dialog::backdrop { background: #20334470; }
 .ui-dialog[open] { display: flex; flex-direction: column; overflow: hidden; }
 .ui-dialog > header,.ui-dialog > footer { flex-shrink: 0; }
-.ui-dialog-body { flex: 1 1 auto; min-height: 0; max-height: calc(100dvh - 10rem); overflow-y: auto; padding: 1.5rem; }
-.dialog-with-footer .ui-dialog-body { max-height: calc(100dvh - 14rem); }
+.ui-dialog-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 1.5rem; overflow-wrap: anywhere; }
 .ui-drawer { margin-right: 1rem; width: min(32rem, calc(100% - 2rem)); }
-.calendar-cell { @apply flex min-h-32 flex-col items-stretch gap-2 border-b border-r border-border bg-surface p-3 text-left; }
+.calendar-cell { @apply flex min-h-32 min-w-0 flex-col items-stretch gap-2 border-b border-r border-border bg-surface p-2 text-left lg:p-3; }
 .calendar-cell:hover { background: var(--color-background); }
 .calendar-cell[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--color-primary); }
-.event-strip { @apply truncate rounded-sm border-l-2 border-primary bg-background px-2 py-1 text-xs font-medium text-ink; }
+.event-strip { @apply block min-w-0 rounded-sm border-l-2 border-primary bg-background px-2 py-1 text-xs font-medium text-ink; }
+.event-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
 .event-strip[data-type="art"] { border-color: var(--color-muted); }
 .event-strip[data-type="both"] { border-color: var(--color-warning); }
 .page-heading { @apply text-3xl font-bold tracking-tight; }

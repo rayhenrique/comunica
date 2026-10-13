@@ -1,20 +1,24 @@
 <section wire:poll.30s.visible x-on:validation-failed.window="$nextTick(() => document.querySelector('dialog[open] [aria-invalid=true]')?.focus())">
     <p class="eyebrow">Assessoria de Comunicação · Moderação</p>
     <div class="mt-2 flex flex-wrap items-end justify-between gap-4"><div><h1 class="page-heading">Triagem de pautas</h1><p class="mt-3 text-muted">Analise os pedidos, confira os conflitos e organize a agenda institucional.</p></div><x-ui.button :href="url('/calendario')">Ver calendário <span aria-hidden="true">↗</span></x-ui.button></div>
-    <div class="my-5"><x-ui.feedback :message="$feedback" /></div>
-    <div class="panel">
-        <div class="grid gap-4 border-b border-border p-5 sm:grid-cols-2 lg:grid-cols-5">
-            <x-ui.field name="status" label="Status" as="select" wire:model.live="status"><option value="">Todos</option>@foreach(\App\Support\EventLabels::statuses() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
-            <x-ui.field name="department" label="Setor" as="select" wire:model.live="department"><option value="">Todos os setores</option>@foreach($departments as $departmentName)<option value="{{ $departmentName }}">{{ $departmentName }}</option>@endforeach</x-ui.field>
-            <x-ui.field name="demand_type" label="Demanda" as="select" wire:model.live="demand_type"><option value="">Todas</option>@foreach(\App\Support\EventLabels::demands() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
-            <x-ui.field name="from" label="A partir de" type="date" wire:model.live="from" />
-            <x-ui.field name="to" label="Até" type="date" wire:model.live="to" />
-            <div class="sm:col-span-2 lg:col-span-5"><x-ui.button wire:click="clearFilters">Limpar filtros</x-ui.button></div>
+    <div><x-ui.feedback :message="$feedback" /></div>
+    <div class="panel mt-5">
+        <div class="grid grid-cols-2 items-end gap-3 border-b border-border p-4 lg:grid-cols-3 xl:grid-cols-6">
+            <x-ui.field compact name="status" label="Status" as="select" wire:model.live="status"><option value="">Todos</option>@foreach(\App\Support\EventLabels::statuses() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
+            <x-ui.field compact name="department" label="Setor" as="select" wire:model.live="department"><option value="">Todos os setores</option>@foreach($departments as $departmentName)<option value="{{ $departmentName }}">{{ $departmentName }}</option>@endforeach</x-ui.field>
+            <x-ui.field compact name="demand_type" label="Demanda" as="select" wire:model.live="demand_type"><option value="">Todas</option>@foreach(\App\Support\EventLabels::demands() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
+            <x-ui.field compact name="from" label="A partir de" type="date" wire:model.live="from" />
+            <x-ui.field compact name="to" label="Até" type="date" wire:model.live="to" />
+            <div><x-ui.button wire:click="clearFilters">Limpar filtros</x-ui.button></div>
         </div>
-        <div class="overflow-x-auto"><table class="data-table min-w-200"><caption class="sr-only">Solicitações de todos os setores</caption><thead><tr><th scope="col">Pauta / setor</th><th scope="col">Quando / local</th><th scope="col">Demanda</th><th scope="col">Status / alertas</th><th scope="col">Decisão</th></tr></thead><tbody>
-            @forelse($requests as $event)<tr wire:key="triage-{{ $event->id }}"><td><p class="max-w-64 break-words font-semibold">{{ $event->title }}</p><p class="mt-1 text-xs text-muted">{{ $event->user->department }}</p></td><td><p class="whitespace-nowrap">{{ $event->start_at->format('d/m/Y') }} · {{ $event->formattedStartTime() }}–{{ $event->formattedEndTime() }}</p><p class="mt-1 max-w-52 break-words text-xs text-muted">{{ $event->location }}</p></td><td>{{ \App\Support\EventLabels::demand($event->demand_type) }}</td><td><x-ui.status :status="$event->status" />@if($conflictCounts[$event->id])<p class="mt-2 text-xs font-semibold text-warning">⚠ {{ $conflictCounts[$event->id] }} conflito(s)</p>@elseif($event->status === 'pending')<p class="mt-2 text-xs text-muted">Sem conflitos</p>@endif</td><td><x-ui.button wire:click="openReview({{ $event->id }})" aria-label="Analisar {{ $event->title }}">{{ $event->status === 'pending' ? 'Analisar' : 'Detalhes' }} <span aria-hidden="true">→</span></x-ui.button></td></tr>
+        <div class="hidden overflow-x-auto md:block"><table class="data-table"><caption class="sr-only">Solicitações de todos os setores</caption><thead><tr><th scope="col">Pauta / setor</th><th scope="col">Quando / local</th><th scope="col">Demanda</th><th scope="col">Status / alertas</th><th scope="col">Decisão</th></tr></thead><tbody>
+            @forelse($requests as $event)<tr wire:key="triage-{{ $event->id }}"><td><p class="max-w-64 break-words font-semibold">{{ $event->title }}</p><p class="mt-1 text-xs text-muted">{{ $event->user->department }}</p></td><td><p class="whitespace-nowrap">{{ $event->start_at->format('d/m/Y') }} · {{ $event->formattedStartTime() }}–{{ $event->formattedEndTime() }}</p><p class="mt-1 max-w-52 break-words text-xs text-muted">{{ $event->location }}</p></td><td>{{ \App\Support\EventLabels::demand($event->demand_type) }}</td><td><x-ui.conflict-status :event="$event" :count="$conflictCounts[$event->id]" /></td><td><x-ui.request-actions :event="$event" triage /></td></tr>
             @empty<tr><td colspan="5" class="py-12 text-center"><h2 class="text-lg font-semibold">Nenhuma pauta neste filtro</h2><p class="mt-2 text-muted">Altere o período, setor ou status para consultar outras solicitações.</p></td></tr>@endforelse
         </tbody></table></div>
+        <ul class="md:hidden" aria-label="Solicitações de todos os setores">
+            @forelse($requests as $event)<x-ui.request-card :event="$event" triage :conflict-count="$conflictCounts[$event->id]" />
+            @empty<li class="p-5"><h2 class="font-semibold">Nenhuma pauta neste filtro</h2><p class="mt-2 text-sm text-muted">Altere o período, setor ou status para consultar outras solicitações.</p></li>@endforelse
+        </ul>
         <x-ui.pagination :paginator="$requests" />
     </div>
     <x-ui.dialog model="reviewOpen" title="Análise da pauta" drawer>
@@ -28,9 +32,9 @@
                     @else <p class="mb-5 rounded-control bg-background p-3 text-sm text-success">Nenhum conflito encontrado para este horário.</p>@endif
                     <form id="moderation-form" wire:submit="moderate" novalidate class="space-y-4">
                         <x-ui.errors />
-                        <x-ui.field name="decision" label="Decisão" as="select" wire:model.live="decision"><option value="approve">Aprovar</option><option value="reschedule">Reagendar e aprovar</option><option value="reject">Recusar</option></x-ui.field>
-                        @if($decision === 'reschedule')<x-ui.field name="start_at" label="Nova data e hora" type="datetime-local" wire:model.live="start_at" required hint="Horário de Brasília. O reagendamento já confirma a nova agenda." />@endif
-                        @if($decision !== 'approve')<x-ui.field name="moderation_notes" label="Justificativa" as="textarea" wire:model="moderation_notes" required :hint="$decision === 'reject' ? 'Informe pelo menos 10 caracteres.' : 'Explique o motivo do reagendamento.'" />@endif
+                        <x-ui.field compact name="decision" label="Decisão" as="select" wire:model.live="decision"><option value="approve">Aprovar</option><option value="reschedule">Reagendar e aprovar</option><option value="reject">Recusar</option></x-ui.field>
+                        @if($decision === 'reschedule')<x-ui.field compact name="start_at" label="Nova data e hora" type="datetime-local" wire:model.live="start_at" required hint="Horário de Brasília. O reagendamento já confirma a nova agenda." />@endif
+                        @if($decision !== 'approve')<x-ui.field compact name="moderation_notes" label="Justificativa" as="textarea" wire:model="moderation_notes" required :hint="$decision === 'reject' ? 'Informe pelo menos 10 caracteres.' : 'Explique o motivo do reagendamento.'" />@endif
                         <x-ui.feedback :message="$feedback" />
                     </form>
                 </section>

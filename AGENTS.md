@@ -12,6 +12,8 @@ Aplicação institucional de gestão de solicitações de apoio à Comunicação
 - Execute testes e verificações apropriadas antes de concluir cada tarefa. Não declare resultados não executados; registre impedimentos de infraestrutura.
 - Não exponha nem versione .env, credenciais ou segredos. Verifique o estado Git quando disponível; não faça push automaticamente.
 - Ao terminar cada etapa, apresente diagnóstico, implementação, testes, pendências, controle de tarefas e notas da versão. Mantenha histórico resumido.
+- Para trabalho de UI, consulte integralmente DESIGN.md, UX-CONTRACT.md, DESIGN-SYSTEM.md, UI-UX-GUIDELINES.md e DESIGN-LOCK.md. DESIGN permanece fonte canônica de tokens e UX-CONTRACT de comportamento; documentos complementares não criam valores concorrentes.
+- Alterações de paleta, tipografia, tokens, marca, identidade, proporções fundamentais ou comportamento padronizado exigem autorização humana explícita e registro em DECISIONS.md. Preserve o gerador; nunca edite theme.generated.css diretamente. Execute design:check/design:test e valide a interface; alterações da baseline também exigem revisão contra o escopo aprovado. Não faça push sem autorização.
 - Antecedência mínima definida pelo usuário em 13/10/2026: 48 horas corridas, incluindo fins de semana e feriados. A divergência original foi resolvida; preserve esta decisão registrada em DECISIONS.md.
 - Conflitos de cobertura: qualquer sobreposição entre duas demandas coverage/both gera alerta, mesmo em locais diferentes, conforme decisão do usuário em 13/10/2026. Mesmo local exige sobreposição, independentemente do tipo. Alertas não bloqueiam moderação.
 - America/Sao_Paulo é configuração inicial de ambiente, não regra do PRD.

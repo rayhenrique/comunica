@@ -1,6 +1,6 @@
 # Manual do usuário — Comunica
 
-Versão de referência: **1.0.0**, de 13/10/2026.
+Versão de referência: **1.1.0**, de 13/10/2026.
 
 O Comunica reúne pedidos de apoio à Comunicação e uma agenda de eventos confirmados. Acesse pelo endereço fornecido pela instituição. No ambiente local de desenvolvimento, o endereço padrão é `http://127.0.0.1:8000`.
 
@@ -49,6 +49,8 @@ Se houver erro, corrija os campos indicados e envie novamente. Os valores perman
 
 Abra **Minhas solicitações** (`/solicitacoes`). Use o filtro de status e a paginação para localizar um pedido. Selecione **Detalhes** para consultar os dados e o parecer da Comunicação.
 
+No celular, cada solicitação aparece em um card com datas, demanda, status e ações. No desktop, os mesmos dados aparecem em tabela. Filtros e paginação funcionam nas duas apresentações.
+
 | Status | Significado |
 | --- | --- |
 | Pendente | Aguarda decisão da Comunicação; o solicitante pode cancelar |
@@ -62,6 +64,8 @@ Para cancelar, use **Cancelar** no pedido pendente e confirme em **Cancelar soli
 Solicitações decididas não podem ser editadas pelo coordenador. O reagendamento já confirma a nova agenda e dispensa aceite do solicitante. Consulte regularmente seu painel: não há envio de notificações externas no MVP.
 
 ## Comunicação: analisar e decidir
+
+No celular, a triagem apresenta cards com setor, horário, local, demanda, status, conflitos e botão de análise. No desktop, mantém a tabela. As permissões e decisões são as mesmas nas duas apresentações.
 
 1. Entre com perfil da Comunicação e abra **Triagem de pautas** (`/comunicacao/triagem`).
 2. Filtre por status, setor, demanda ou período. **Limpar filtros** retorna à fila padrão de pendentes.

@@ -10,8 +10,8 @@
                 @foreach(\App\Support\EventLabels::demands() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach
             </x-ui.field>
             <x-ui.field name="form.start_at" label="Data e hora de início" type="datetime-local" wire:model.blur="form.start_at" x-model="dateValue" required hint="Horário de Brasília. Mínimo de 48 horas corridas." />
-            <x-ui.field name="form.duration_minutes" label="Duração estimada (minutos)" type="number" wire:model.blur="form.duration_minutes" x-model="duration" min="1" max="65535" required />
-            <div class="rounded-control bg-background p-4"><p class="text-xs font-semibold text-muted">Término previsto</p><p class="mt-1 font-mono text-lg" x-text="endPreview"></p><p class="mt-2 text-xs text-muted">Calculado automaticamente a partir da duração.</p></div>
+            <div class="min-w-0"><x-ui.field name="form.duration_minutes" label="Duração estimada (minutos)" type="number" wire:model.blur="form.duration_minutes" x-model="duration" min="1" max="65535" required />
+            <div class="mt-2 rounded-control bg-background px-3 py-2"><p class="text-xs font-semibold text-muted">Término previsto</p><p class="mt-1 font-mono text-base" x-text="endPreview"></p><p class="mt-2 text-xs text-muted">Calculado automaticamente a partir da duração.</p></div></div>
             <x-ui.field name="form.location" label="Local do evento" wire:model.blur="form.location" maxlength="255" required />
             <x-ui.field name="form.target_audience" label="Público-alvo" wire:model.blur="form.target_audience" maxlength="255" required />
             <div class="md:col-span-2"><x-ui.field name="form.description" label="Briefing / descrição" as="textarea" wire:model.blur="form.description" hint="Descreva o objetivo, o contexto e o apoio necessário. Apenas texto." /></div>

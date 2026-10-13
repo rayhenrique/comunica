@@ -6,6 +6,20 @@ O projeto usa versões `MAJOR.MINOR.PATCH`: MAJOR para mudanças incompatíveis,
 
 Não reescrever tags publicadas. Atualizar este histórico e o manual quando o comportamento mudar. Commitar somente código, documentação e lockfiles; ambientes, senhas, sessões, dumps e dependências instaladas ficam excluídos. O banco de dados não é um backup Git.
 
+## [1.1.0] — 13/10/2026
+
+Refinamento UI/UX aprovado após auditoria em duas etapas. Entrega local; sem push automático.
+
+- Cards mobile no histórico e triagem, mantendo tabelas desktop, filtros, paginação e ações autorizadas.
+- Filtros compactos, ajuda condicional, controle de senha com alvo confortável e campos com contorno contrastante usando tokens existentes.
+- Calendário com horário separado, títulos limitados na grade e seleção mobile persistente; título principal dentro da escala aprovada.
+- Status reagendado distinguido por contorno; diálogos com corpo flexível e ações visíveis.
+- DESIGN-SYSTEM, UI-UX-GUIDELINES e DESIGN-LOCK complementam DESIGN e UX-CONTRACT; consulta e aprovação obrigatórias em AGENTS.
+- Exportador fixado em versão exata e lockfile, baseline de identidade, auditoria de drift, testes negativos e workflow CI.
+- Paleta, fontes, marca, regras, banco e permissões preservados. Nenhuma fonte alternativa aplicada.
+
+Validação: 95 testes/639 assertions, sete testes de proteção de identidade, Pint e build aprovados. Matrizes Chrome em 360/390/768/1024/1440 px com dados isolados. Consulte [relatório da Etapa B](UI-UX-REFINEMENT-REPORT.md) para cobertura, evidências e limites.
+
 ## [1.0.0] — 13/10/2026
 
 Primeira versão identificada do MVP, consolidando as fases 1–6. Os marcos abaixo foram desenvolvidos antes da inicialização do Git; não representam commits ou tags históricos.

@@ -31,7 +31,7 @@ DESIGN.md gera theme.generated.css; app.css aplica aliases e componentes. Tema c
 
 ## Component behavior
 
-Button: hover/foco/pressionado, disabled não interativo, busy com spinner reservado. Field: label/for, aria-invalid e error/help associados; validação após blur/submissão e foco no primeiro erro. Textarea: resize none, auto-grow limitado. Status: texto sem ação falsa. Dialog: showModal, Escape, fundo inerte e restauração do gatilho.
+Button: hover/foco/pressionado, disabled não interativo, busy com spinner reservado. Field: label/for, aria-invalid e error/help associados somente quando existem; validação após blur/submissão e foco no primeiro erro. Textarea: resize none, auto-grow limitado. Status: texto sem ação falsa; reagendado distinguido por contorno. Dialog: showModal, Escape, fundo inerte e restauração do gatilho.
 
 ## Dataset navigation
 
@@ -49,7 +49,7 @@ Listas internas paginadas no servidor, 15 registros. Status, período, setor e d
 
 ## Navigation and responsive behavior
 
-Títulos específicos por rota. 403/404 próprios com acesso ao calendário. Cabeçalho permite calendário e painel autorizado. Tabelas internas rolam horizontalmente, sem cortar controles; abaixo de 768px calendário vira lista cronológica. Não usar wire:navigate em formulários com dados pendentes: navegação real usa beforeunload; retorno intencional usa confirmação do aplicativo.
+Títulos específicos por rota. 403/404 próprios com acesso ao calendário. Cabeçalho permite calendário e painel autorizado. Triagem e histórico usam tabelas a partir de 768px e cards abaixo disso com a mesma coleção, ações autorizadas e paginação; abaixo de 768px calendário vira lista cronológica. Não usar wire:navigate em formulários com dados pendentes: navegação real usa beforeunload; retorno intencional usa confirmação do aplicativo.
 
 ## Overlays and feedback
 
@@ -70,3 +70,7 @@ Ocultar controles irrelevantes ao perfil; status decidido mostra parecer e ausê
 ## Verification
 
 PHPUnit + Pint + Vite build + audit_project.py strict + DESIGN lint. Navegador desktop e 390px: criação, cancelamento, decisões, calendário público, filtros/vazio, validação, teclado/dialog/Escape, offline e reduced motion. Comparação de formulário de criação/login e drawers de pauta/dia. Evidências no relatório da fase 5 e capturas fora do repositório.
+
+## Refinamento aprovado — 13/10/2026
+
+Feedback e ajuda vazios não reservam altura. Field compact preserva alvo mínimo; controle de mostrar senha possui alvo de 44px. Calendário mobile conserva estado selecionado; títulos completos ficam no detalhe. Diálogo usa corpo flexível rolável e ações fixas. Cabeçalho permite quebra de nomes longos. DESIGN-SYSTEM.md e UI-UX-GUIDELINES.md complementam este contrato; DESIGN-LOCK.md protege alterações padronizadas.
