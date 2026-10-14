@@ -73,6 +73,6 @@ As falhas HTTP 500/419 foram validadas na fase 5 e seu handler JS não mudou; n�
 
 ## Controle e notas da versão
 
-Etapa B concluída com implementação autorizada, documentação, verificador e testes reais. As fases 1–6 permanecem marcadas e intactas. README, manual e versoes.md atualizados para **1.1.0**. Commits organizados por interface, proteção/documentação e testes/notas; sem push automático. Dados e serviços existentes preservados; somente o servidor temporário de QA é encerrado após a validação.
+Etapa B concluída com implementação autorizada, documentação, verificador e testes reais. As fases 1–6 permanecem marcadas e intactas. README, manual e versoes.md atualizados para **1.1.0**. Foram planejados commits separados; na conferência final, outra ação já havia consolidado a entrega no commit único f528a9f e na tag v1.1.0. git ls-remote confirmou ambos publicados; esse registro foi preservado, sem reescrever histórico. Esta sessão de implementação não executou push. A atualização documental desta observação permanece local até autorização. Dados e serviços existentes preservados; somente o servidor temporário de QA foi encerrado após a validação.
 
 A versão melhora a consulta pelo celular, reduz espaço sem conteúdo e protege a identidade institucional para futuras alterações. Mantém paleta, fontes e fluxos de decisão do MVP.

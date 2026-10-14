@@ -132,7 +132,7 @@ A interface foi validada em Chrome no Windows, incluindo viewports mobile simula
 
 ## Controle de versão
 
-O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão local de referência é v1.1.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. Novas versões só são enviadas com autorização; este refinamento não foi publicado automaticamente.
+O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão de referência é v1.1.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. A conferência final encontrou v1.1.0 já publicada por outra ação. Esta sessão não executou push; novas alterações só são enviadas com autorização.
 
 ```powershell
 git status --short

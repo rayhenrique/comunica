@@ -8,7 +8,7 @@ Não reescrever tags publicadas. Atualizar este histórico e o manual quando o c
 
 ## [1.1.0] — 13/10/2026
 
-Refinamento UI/UX aprovado após auditoria em duas etapas. Entrega local; sem push automático.
+Refinamento UI/UX aprovado após auditoria em duas etapas. A conferência final encontrou o commit f528a9f e a tag v1.1.0 já publicados por outra ação. Esta sessão não executou push; a nota documental dessa observação permanece local até autorização.
 
 - Cards mobile no histórico e triagem, mantendo tabelas desktop, filtros, paginação e ações autorizadas.
 - Filtros compactos, ajuda condicional, controle de senha com alvo confortável e campos com contorno contrastante usando tokens existentes.
