@@ -244,3 +244,7 @@ Execute cada comando e pare se houver falha. Enquanto a correção não estiver 
 | Não consigo entrar | Conta institucional existente, role correta e senha definida pelo administrador |
 
 Não habilite APP_DEBUG=true publicamente para diagnosticar; leia os logs pelo SSH/painel. Não envie logs com credenciais ao suporte. O manual foi revisado contra o código e fontes oficiais; instalação real, firewall, DNS, certificados e restauração precisam ser validados no servidor.
+
+## Notas de versão e ajuda
+
+A versão atual do código é definida exclusivamente em `config/version.php`. Consulte [CHANGELOG.md](CHANGELOG.md) e [RELEASES.md](RELEASES.md). Ajuda e Novidades estão disponíveis no rodapé; communication_admin administra rascunhos, publicação e histórico no painel. Após atualizar o código, execute `php artisan migrate --force` antes de liberar tráfego. Publique a nota correspondente à versão implantada para habilitar o modal no próximo login de cada usuário.

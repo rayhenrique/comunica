@@ -5,23 +5,25 @@ document.addEventListener('alpine:init', () => {
         open: local ? false : wire.entangle(model).live,
         trigger: null,
         init() {
-            this.$watch('open', (value) => {
-                if (value && !this.$refs.dialog.open) {
-                    this.trigger = document.activeElement;
-                    this.$refs.dialog.showModal();
-                } else if (!value && this.$refs.dialog.open) {
-                    this.$refs.dialog.close();
-                    if (this.trigger?.isConnected) {
-                        this.trigger.focus();
-                    } else {
-                        const heading = document.querySelector('main h1');
-                        if (heading) {
-                            heading.tabIndex = -1;
-                            heading.focus({ preventScroll: true });
-                        }
+            this.$watch('open', (value) => this.syncDialog(value));
+            this.$nextTick(() => this.syncDialog(this.open));
+        },
+        syncDialog(value) {
+            if (value && !this.$refs.dialog.open) {
+                this.trigger = document.activeElement;
+                this.$refs.dialog.showModal();
+            } else if (!value && this.$refs.dialog.open) {
+                this.$refs.dialog.close();
+                if (this.trigger?.isConnected) {
+                    this.trigger.focus();
+                } else {
+                    const heading = document.querySelector('main h1');
+                    if (heading) {
+                        heading.tabIndex = -1;
+                        heading.focus({ preventScroll: true });
                     }
                 }
-            });
+            }
         },
     }));
 });

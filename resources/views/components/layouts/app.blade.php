@@ -23,11 +23,15 @@
             @can('moderate', \App\Models\EventRequest::class)<a class="nav-link" href="{{ url('/comunicacao/triagem') }}" @if(request()->is('comunicacao/triagem')) aria-current="page" @endif>Triagem de pautas</a>@endcan
             <a class="nav-link" href="{{ url('/calendario') }}">Calendário institucional <span aria-hidden="true">↗</span></a>
             <a class="nav-link" href="{{ route('about') }}">Sobre</a>
+            <a class="nav-link" href="{{ route('help') }}">Ajuda</a>
+            <a class="nav-link" href="{{ route('news') }}">Novidades</a>
+            @can('viewAny', \App\Models\Release::class)<a class="nav-link" href="{{ route('releases.index') }}">Administrar novidades</a>@endcan
         </nav>
     </header>
     <x-ui.network-alert />
     <main id="conteudo" class="page-width py-9">{{ $slot }}</main>
     <x-ui.site-footer />
+    @can('acknowledgeRelease', \App\Models\User::class)<livewire:release-notice />@endcan
     @livewireScripts
 </body>
 </html>

@@ -18,3 +18,7 @@ Após a Etapa A, o usuário respondeu “pode executar a etapa B”, autorizando
 ## 13/10/2026 — créditos, apresentação e instalação
 
 O usuário autorizou créditos para KL Tecnologia (kltecnologia.com), link/página Sobre, interface PT-BR, responsividade mobile-first e manual Hostinger/CloudPanel baseado nas imagens fornecidas. A navegação/rodapé e textos padronizados foram atualizados neste escopo, mantendo tokens, fontes, permissões e regras. A baseline visual deve ser revisada com essas alterações; não houve autorização para instalar ou modificar a VPS nesta solicitação.
+
+## 13/10/2026 — Ajuda, novidades e versão
+
+Escopo autorizado: SemVer central, histórico CHANGELOG, notas no banco com auditoria, administração exclusiva da Comunicação, Ajuda/Novidades públicas e modal por usuário/versão no login. A leitura é confirmada ao fechar o modal. Publicação exige versão igual ao código; não incrementa versão e não ocorre automaticamente. Entrega compatível com novas funcionalidades: 1.3.0. Migrations incrementais sem alterar as tabelas de negócio. Push de main e tags autorizado pelo usuário. Os novos componentes seguem os tokens e diálogos existentes.

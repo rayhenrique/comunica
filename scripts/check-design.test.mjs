@@ -9,6 +9,8 @@ import { verifyDesign } from './check-design.mjs';
 const source = fileURLToPath(new URL('../', import.meta.url));
 const baseline = JSON.parse(readFileSync(join(source, 'design-lock.json'), 'utf8'));
 for (const [name, path, mutate] of [
+    ['versão inválida', 'config/version.php', s => s.replace("'1.3.0'", "'01.3.0'")],
+    ['histórico ausente', 'CHANGELOG.md', s => s.replace('## 1.3.0 — ', '## removida — ')],
     ['cor canônica', 'DESIGN.md', s => s.replace('#17665B', '#000000')],
     ['fonte canônica', 'DESIGN.md', s => s.replace('Segoe UI', 'Outra Fonte')],
     ['raio canônico', 'DESIGN.md', s => s.replace('0.75rem', '2rem')],

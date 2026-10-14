@@ -18,3 +18,8 @@ Aplicação institucional de gestão de solicitações de apoio à Comunicação
 - Conflitos de cobertura: qualquer sobreposição entre duas demandas coverage/both gera alerta, mesmo em locais diferentes, conforme decisão do usuário em 13/10/2026. Mesmo local exige sobreposição, independentemente do tipo. Alertas não bloqueiam moderação.
 - America/Sao_Paulo é configuração inicial de ambiente, não regra do PRD.
 - A conexão MySQL local foi validada e a fase 1 foi concluída. Credenciais ficam exclusivamente no .env; não as invente ou exponha. Execute futuras migrations somente no escopo autorizado, preservando dados existentes; não use migrate:fresh/reset em banco com dados sem autorização explícita.
+
+## Entregas e versionamento
+
+- Toda entrega deve verificar impacto SemVer, consultar `config/version.php` (única fonte da versão atual), atualizar CHANGELOG.md quando aplicável e registrar notas legíveis ao usuário final. Não incrementar versão por commit.
+- Notas são administradas exclusivamente por communication_admin com Policies e Actions; publicação somente para a versão efetivamente implantada. Preservar histórico e separar publicação da alteração de versão do código.

@@ -27,3 +27,5 @@ O exportador está fixado na versão exata do package.json e package-lock.json; 
 ## Limites
 
 Hash detecta divergência, não prova consentimento. Quem pode editar o repositório também pode editar baseline e verificador; revisão humana de diff/decisão continua obrigatória. O CI executa o check, mas política de proteção de branch no GitHub não foi configurada. Testes visuais/funcionais complementam a verificação estática e não são substituídos por ela.
+
+A baseline referencia config/version.php como fonte da versão do código. A auditoria valida SemVer e exige sua entrada em CHANGELOG.md; ambos estão protegidos. Os testes incluem versão inválida e ausência do registro histórico.

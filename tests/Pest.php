@@ -6,3 +6,4 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 pest()->extend(TestCase::class)->use(RefreshDatabase::class)->in('Feature/Phase6');
+pest()->extend(TestCase::class)->use(RefreshDatabase::class)->in('Feature/Releases');

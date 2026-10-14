@@ -102,3 +102,7 @@ Somente pedidos pendentes podem receber decisão. Caso outra pessoa já tenha de
 Use Tab para navegar entre campos e botões, Enter/Espaço para acionar controles conforme o navegador e Escape para fechar diálogos. Seletores de data e listas podem ter aparência diferente conforme o sistema operacional.
 
 Para solicitar suporte, informe a tela, a ação, o horário e a mensagem apresentada. Não envie sua senha. A administração deve fornecer o canal institucional de suporte.
+
+## Notas de versão e ajuda
+
+A versão atual do código é definida exclusivamente em `config/version.php`. Consulte [CHANGELOG.md](CHANGELOG.md) e [RELEASES.md](RELEASES.md). Ajuda e Novidades estão disponíveis no rodapé; communication_admin administra rascunhos, publicação e histórico no painel. Após atualizar o código, execute `php artisan migrate --force` antes de liberar tráfego. Publique a nota correspondente à versão implantada para habilitar o modal no próximo login de cada usuário.

@@ -23,6 +23,7 @@
     <x-ui.network-alert />
     <main id="conteudo" class="page-width py-9 md:py-12">{{ $slot }}</main>
     <x-ui.site-footer />
+    @can('acknowledgeRelease', \App\Models\User::class)<livewire:release-notice />@endcan
     @livewireScripts
 </body>
 </html>

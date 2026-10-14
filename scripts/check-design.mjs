@@ -24,6 +24,9 @@ export function verifyDesign(root = projectRoot) {
         }
     };
     for (const directory of ['resources/css', 'resources/js', 'resources/views']) inventory(directory);
+    const version = readFileSync(resolve(root, 'config/version.php'), 'utf8').match(/'current'\s*=>\s*'([^']+)'/)?.[1];
+    if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version ?? '')) errors.push('Versão central inválida: config/version.php');
+    if (!readFileSync(resolve(root, 'CHANGELOG.md'), 'utf8').includes(`## ${version} — `)) errors.push('CHANGELOG.md não registra a versão central.');
     const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
     const lock = JSON.parse(readFileSync(resolve(root, 'package-lock.json'), 'utf8'));
     if (pkg.devDependencies['@google/design.md'] !== baseline.exporterVersion ||

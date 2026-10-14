@@ -69,3 +69,11 @@ Não inclui notificações externas, gestão individual de equipe, anexos ou neg
 5. Criar tag da versão validada: `git tag -a vX.Y.Z -m "Comunica X.Y.Z"`.
 
 Nenhum remoto ou push é configurado automaticamente. Para consultar o histórico: `git log --oneline --decorate` e `git tag --list`.
+
+## Notas de versão e ajuda
+
+A versão atual do código é definida exclusivamente em `config/version.php`. Consulte [CHANGELOG.md](CHANGELOG.md) e [RELEASES.md](RELEASES.md). Ajuda e Novidades estão disponíveis no rodapé; communication_admin administra rascunhos, publicação e histórico no painel. Após atualizar o código, execute `php artisan migrate --force` antes de liberar tráfego. Publique a nota correspondente à versão implantada para habilitar o modal no próximo login de cada usuário.
+
+## 1.3.0 — 13/10/2026
+
+Ajuda e Novidades, notas administráveis com histórico, publicação independente do código e leitura por usuário. Versão atual centralizada em config/version.php; CHANGELOG.md registra detalhes. Commit e tag da entrega identificam o código publicado.

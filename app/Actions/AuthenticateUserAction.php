@@ -36,6 +36,7 @@ class AuthenticateUserAction
         }
 
         session()->regenerate();
+        session()->put('release-notice-login', true);
         RateLimiter::clear($key);
 
         return $user;

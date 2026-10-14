@@ -71,3 +71,12 @@
 - [x] 6.2 Testar isolamento de visibilidade (Coordenador A não acessa dados do Coordenador B).
 - [x] 6.3 Testar ação de moderação (não permitir aprovação/reagendamento por coordenador comum).
 - [x] 6.4 Testar detecção de choque de agenda no mesmo local e horário.
+
+---
+
+### Fase 7: Versionamento e notas — autorização de 13/10/2026
+- [x] 7.1 Centralizar SemVer e criar CHANGELOG histórico.
+- [x] 7.2 Criar migrations incrementais, modelos, Policies e Actions de notas e histórico.
+- [x] 7.3 Administrar notas exclusivamente por communication_admin, publicando apenas a versão implantada.
+- [x] 7.4 Criar Ajuda/Novidades e modal com leitura por usuário e versão após login.
+- [x] 7.5 Validar Pest, Pint, build e contratos; documentar entrega e publicar commit/tags conforme autorização.

@@ -1,6 +1,6 @@
 # Comunica
 
-Sistema institucional de solicitações de apoio à Comunicação e calendário público, desenvolvido pela [KL Tecnologia](https://kltecnologia.com). **Versão 1.2.0**: apresentação pública, créditos, interface PT-BR e guia de instalação na VPS.
+Sistema institucional de solicitações de apoio à Comunicação e calendário público, desenvolvido pela [KL Tecnologia](https://kltecnologia.com). A versão atual está centralizada em `config/version.php`. Inclui Ajuda, Novidades e administração de notas de versão com histórico.
 
 ## Funcionalidades
 
@@ -118,7 +118,7 @@ npm run design:check
 npm run design:test
 ```
 
-Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação da versão 1.2.0 passou com **98 testes e 666 assertions**, além de sete verificações de proteção de design. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
+Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação desta entrega passou com **111 testes e 721 assertions**, além de nove verificações de proteção de design e versionamento. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
 
 A interface foi validada em Chrome no Windows, incluindo viewports mobile simulados. Não há certificação de acessibilidade, teste de carga ou validação em todos os navegadores. As evidências e limitações estão nos relatórios.
 
@@ -134,7 +134,7 @@ A interface foi validada em Chrome no Windows, incluindo viewports mobile simula
 
 ## Controle de versão
 
-O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão local de referência é v1.2.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. v1.1.0 já está publicada; esta entrega 1.2.0 permanece local até autorização de envio.
+O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). Consulte `config/version.php` para a versão do código, CHANGELOG.md para o histórico e `git tag --list` para as tags. O envio desta entrega e da entrega anterior foi autorizado expressamente.
 
 ```powershell
 git status --short
@@ -151,3 +151,7 @@ Faça backup do banco e do ambiente, obtenha a versão desejada, instale as depe
 ## Créditos
 
 Desenvolvimento: [KL Tecnologia](https://kltecnologia.com). Construído sobre Laravel e suas dependências. Consulte as licenças dos respectivos pacotes; este README não define uma licença institucional própria para o Comunica.
+
+## Notas de versão e ajuda
+
+A versão atual do código é definida exclusivamente em `config/version.php`. Consulte [CHANGELOG.md](CHANGELOG.md) e [RELEASES.md](RELEASES.md). Ajuda e Novidades estão disponíveis no rodapé; communication_admin administra rascunhos, publicação e histórico no painel. Após atualizar o código, execute `php artisan migrate --force` antes de liberar tráfego. Publique a nota correspondente à versão implantada para habilitar o modal no próximo login de cada usuário.
