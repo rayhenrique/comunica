@@ -6,6 +6,15 @@ O projeto usa versões `MAJOR.MINOR.PATCH`: MAJOR para mudanças incompatíveis,
 
 Não reescrever tags publicadas. Atualizar este histórico e o manual quando o comportamento mudar. Commitar somente código, documentação e lockfiles; ambientes, senhas, sessões, dumps e dependências instaladas ficam excluídos. O banco de dados não é um backup Git.
 
+## [1.2.0] — 13/10/2026
+
+- Créditos de desenvolvimento para KL Tecnologia no rodapé compartilhado e na documentação.
+- Página pública /sobre, com links nos painéis e apresentação dos fluxos, prazo e privacidade.
+- PT-BR como padrão também sem configuração de locale no ambiente; traduções de autenticação/paginação, contagens com plural e páginas comuns de erro.
+- Navegação pública e rodapé com quebra de linha mobile-first; paleta, fontes e permissões preservadas.
+- Manual Hostinger/CloudPanel ilustrado: domínio, raiz /public, banco, dependências, HTTPS, primeiro usuário, backup e atualização. A VPS não foi alterada nesta entrega.
+- 98 testes/666 assertions e sete verificações de identidade aprovados; build e Pint passaram. Baseline atualizada somente para o escopo autorizado em DECISIONS.
+
 ## [1.1.0] — 13/10/2026
 
 Refinamento UI/UX aprovado após auditoria em duas etapas. A conferência final encontrou o commit f528a9f e a tag v1.1.0 já publicados por outra ação. Esta sessão não executou push; a nota documental dessa observação permanece local até autorização.

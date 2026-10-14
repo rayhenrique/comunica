@@ -1,0 +1,10 @@
+<x-layouts.public title="Sobre o Comunica">
+    <article class="mx-auto max-w-3xl space-y-7">
+        <header><p class="eyebrow">Comunicação institucional</p><h1 class="page-heading mt-3">Sobre o Comunica</h1><p class="mt-4 text-lg leading-7 text-muted">Um espaço para organizar pedidos de apoio à Comunicação e acompanhar a agenda institucional confirmada.</p></header>
+        <section><h2 class="text-xl font-bold">Do pedido à pauta confirmada</h2><p class="mt-3 leading-7">Coordenadores registram eventos, indicam o apoio necessário e acompanham suas próprias solicitações. A equipe de Comunicação analisa os pedidos e pode aprovar, reagendar ou recusar, registrando o parecer.</p></section>
+        <section><h2 class="text-xl font-bold">Uma agenda aberta à comunidade</h2><p class="mt-3 leading-7">O calendário público reúne as pautas aprovadas e reagendadas, com datas, horários, locais, tipo de apoio e público-alvo. A consulta dispensa cadastro e funciona no celular, tablet e computador.</p></section>
+        <section><h2 class="text-xl font-bold">Clareza em cada etapa</h2><ul class="mt-3 list-disc space-y-3 pl-5 leading-7"><li>Solicitações com antecedência mínima de 48 horas corridas.</li><li>Término calculado a partir da duração informada.</li><li>Alertas de sobreposição de local ou cobertura para apoiar a decisão da Comunicação.</li><li>Histórico com datas e pareceres, respeitando o acesso de cada perfil.</li></ul><p class="mt-3 leading-7 text-muted">Descrições internas e justificativas ficam nos painéis protegidos. O andamento deve ser consultado no sistema; esta versão não envia notificações externas.</p></section>
+        <section class="border-t border-border pt-6"><h2 class="text-xl font-bold">Desenvolvimento</h2><p class="mt-3 leading-7">O Comunica foi desenvolvido pela <a href="https://kltecnologia.com" class="font-semibold text-primary underline underline-offset-4">KL Tecnologia</a>, com foco em organização, clareza operacional e acesso em diferentes tamanhos de tela.</p></section>
+        <x-ui.button :href="route('calendar')">Consultar calendário</x-ui.button>
+    </article>
+</x-layouts.public>

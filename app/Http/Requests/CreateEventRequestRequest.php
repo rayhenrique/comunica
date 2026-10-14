@@ -38,7 +38,7 @@ class CreateEventRequestRequest extends FormRequest
         return [
             'title' => 'título', 'demand_type' => 'tipo de demanda', 'start_at' => 'data e hora de início',
             'duration_minutes' => 'duração em minutos', 'location' => 'local',
-            'target_audience' => 'público-alvo', 'description' => 'briefing',
+            'target_audience' => 'público-alvo', 'description' => 'descrição do pedido',
         ];
     }
 }

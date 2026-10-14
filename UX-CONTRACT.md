@@ -74,3 +74,7 @@ PHPUnit + Pint + Vite build + audit_project.py strict + DESIGN lint. Navegador d
 ## Refinamento aprovado — 13/10/2026
 
 Feedback e ajuda vazios não reservam altura. Field compact preserva alvo mínimo; controle de mostrar senha possui alvo de 44px. Calendário mobile conserva estado selecionado; títulos completos ficam no detalhe. Diálogo usa corpo flexível rolável e ações fixas. Cabeçalho permite quebra de nomes longos. DESIGN-SYSTEM.md e UI-UX-GUIDELINES.md complementam este contrato; DESIGN-LOCK.md protege alterações padronizadas.
+
+## Apresentação e idioma — 13/10/2026
+
+Sobre é uma página pública em /sobre, acessível nas navegações pública/interna e no rodapé compartilhado. Rodapé identifica desenvolvimento pela KL Tecnologia com link externo. Navegação pública quebra linha em larguras estreitas. Interface, mensagens comuns de erro e contagens usam PT-BR; termos técnicos internos não são rótulos da interface. Select/data continuam nativos: o idioma de popups pertence ao navegador/sistema operacional conforme o contrato existente.

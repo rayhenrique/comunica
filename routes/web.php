@@ -12,6 +12,7 @@ use App\Models\EventRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/calendario');
+Route::view('/sobre', 'pages.about')->name('about');
 
 Route::get('/login', Login::class)->middleware('guest')->name('login');
 Route::post('/logout', LogoutController::class)->middleware('auth')->name('logout');

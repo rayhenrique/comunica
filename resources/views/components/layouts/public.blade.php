@@ -11,9 +11,10 @@
 <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <header class="border-b border-border bg-surface">
-        <div class="page-width flex min-h-20 items-center justify-between gap-4 py-4">
+        <div class="page-width flex min-h-20 flex-wrap items-center justify-between gap-3 py-4">
             <a href="{{ url('/calendario') }}" class="brand text-2xl font-bold tracking-tight text-primary">comunica<span class="ml-1 inline-block h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span></a>
-            <nav aria-label="Navegação principal" class="flex items-center gap-2">
+            <nav aria-label="Navegação principal" class="flex flex-wrap items-center gap-2">
+                <a class="nav-link inline-flex min-h-11 items-center" href="{{ route('about') }}" @if(request()->routeIs('about')) aria-current="page" @endif>Sobre</a>
                 @auth <x-ui.button :href="auth()->user()->isCommunicationAdmin() ? url('/comunicacao/triagem') : url('/solicitacoes')">Meu painel</x-ui.button>
                 @else <x-ui.button :href="url('/login')">Acesso interno <span aria-hidden="true">↗</span></x-ui.button> @endauth
             </nav>
@@ -21,7 +22,7 @@
     </header>
     <x-ui.network-alert />
     <main id="conteudo" class="page-width py-9 md:py-12">{{ $slot }}</main>
-    <footer class="page-width border-t border-border py-6 text-xs text-muted">Comunica · Agenda institucional da Comunicação <span class="mt-2 block sm:float-right sm:mt-0">Horários de Brasília</span></footer>
+    <x-ui.site-footer />
     @livewireScripts
 </body>
 </html>

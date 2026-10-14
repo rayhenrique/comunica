@@ -22,10 +22,12 @@
             @endcan
             @can('moderate', \App\Models\EventRequest::class)<a class="nav-link" href="{{ url('/comunicacao/triagem') }}" @if(request()->is('comunicacao/triagem')) aria-current="page" @endif>Triagem de pautas</a>@endcan
             <a class="nav-link" href="{{ url('/calendario') }}">Calendário institucional <span aria-hidden="true">↗</span></a>
+            <a class="nav-link" href="{{ route('about') }}">Sobre</a>
         </nav>
     </header>
     <x-ui.network-alert />
     <main id="conteudo" class="page-width py-9">{{ $slot }}</main>
+    <x-ui.site-footer />
     @livewireScripts
 </body>
 </html>

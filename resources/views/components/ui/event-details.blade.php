@@ -8,7 +8,7 @@
         <div><dt class="text-muted">Local</dt><dd class="mt-1 break-words">{{ $event->location }}</dd></div>
         <div class="sm:col-span-2"><dt class="text-muted">Público-alvo</dt><dd class="mt-1 break-words">{{ $event->target_audience }}</dd></div>
     </dl>
-    <div><h3 class="text-sm font-semibold">Briefing</h3><p class="mt-2 whitespace-pre-line break-words text-sm leading-6 text-muted">{{ $event->description ?: 'Nenhuma descrição informada.' }}</p></div>
+    <div><h3 class="text-sm font-semibold">Descrição do pedido</h3><p class="mt-2 whitespace-pre-line break-words text-sm leading-6 text-muted">{{ $event->description ?: 'Nenhuma descrição informada.' }}</p></div>
     @if($event->moderation_notes)<div class="rounded-control bg-background p-4"><h3 class="text-sm font-semibold">Parecer da Comunicação</h3><p class="mt-2 whitespace-pre-line break-words text-sm leading-6">{{ $event->moderation_notes }}</p></div>@endif
     @if($event->moderated_at)<p class="text-xs text-muted">Decisão registrada em {{ $event->moderated_at->format('d/m/Y H:i') }} · Horário de Brasília</p>@endif
 </div>

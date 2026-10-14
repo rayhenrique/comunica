@@ -4,14 +4,14 @@
     <div><x-ui.feedback :message="$feedback" /></div>
     <div class="panel mt-5">
         <div class="grid grid-cols-2 items-end gap-3 border-b border-border p-4 lg:grid-cols-3 xl:grid-cols-6">
-            <x-ui.field compact name="status" label="Status" as="select" wire:model.live="status"><option value="">Todos</option>@foreach(\App\Support\EventLabels::statuses() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
+            <x-ui.field compact name="status" label="Situação" as="select" wire:model.live="status"><option value="">Todos</option>@foreach(\App\Support\EventLabels::statuses() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
             <x-ui.field compact name="department" label="Setor" as="select" wire:model.live="department"><option value="">Todos os setores</option>@foreach($departments as $departmentName)<option value="{{ $departmentName }}">{{ $departmentName }}</option>@endforeach</x-ui.field>
             <x-ui.field compact name="demand_type" label="Demanda" as="select" wire:model.live="demand_type"><option value="">Todas</option>@foreach(\App\Support\EventLabels::demands() as $value => $label)<option value="{{ $value }}">{{ $label }}</option>@endforeach</x-ui.field>
             <x-ui.field compact name="from" label="A partir de" type="date" wire:model.live="from" />
             <x-ui.field compact name="to" label="Até" type="date" wire:model.live="to" />
             <div><x-ui.button wire:click="clearFilters">Limpar filtros</x-ui.button></div>
         </div>
-        <div class="hidden overflow-x-auto md:block"><table class="data-table"><caption class="sr-only">Solicitações de todos os setores</caption><thead><tr><th scope="col">Pauta / setor</th><th scope="col">Quando / local</th><th scope="col">Demanda</th><th scope="col">Status / alertas</th><th scope="col">Decisão</th></tr></thead><tbody>
+        <div class="hidden overflow-x-auto md:block"><table class="data-table"><caption class="sr-only">Solicitações de todos os setores</caption><thead><tr><th scope="col">Pauta / setor</th><th scope="col">Quando / local</th><th scope="col">Demanda</th><th scope="col">Situação / alertas</th><th scope="col">Decisão</th></tr></thead><tbody>
             @forelse($requests as $event)<tr wire:key="triage-{{ $event->id }}"><td><p class="max-w-64 break-words font-semibold">{{ $event->title }}</p><p class="mt-1 text-xs text-muted">{{ $event->user->department }}</p></td><td><p class="whitespace-nowrap">{{ $event->start_at->format('d/m/Y') }} · {{ $event->formattedStartTime() }}–{{ $event->formattedEndTime() }}</p><p class="mt-1 max-w-52 break-words text-xs text-muted">{{ $event->location }}</p></td><td>{{ \App\Support\EventLabels::demand($event->demand_type) }}</td><td><x-ui.conflict-status :event="$event" :count="$conflictCounts[$event->id]" /></td><td><x-ui.request-actions :event="$event" triage /></td></tr>
             @empty<tr><td colspan="5" class="py-12 text-center"><h2 class="text-lg font-semibold">Nenhuma pauta neste filtro</h2><p class="mt-2 text-muted">Altere o período, setor ou status para consultar outras solicitações.</p></td></tr>@endforelse
         </tbody></table></div>

@@ -1,10 +1,12 @@
 # Manual do usuário — Comunica
 
-Versão de referência: **1.1.0**, de 13/10/2026.
+Versão de referência: **1.2.0**, de 13/10/2026. Desenvolvimento: [KL Tecnologia](https://kltecnologia.com).
 
 O Comunica reúne pedidos de apoio à Comunicação e uma agenda de eventos confirmados. Acesse pelo endereço fornecido pela instituição. No ambiente local de desenvolvimento, o endereço padrão é `http://127.0.0.1:8000`.
 
 ## Perfis e acesso
+
+O link **Sobre**, na navegação e no rodapé, apresenta o Comunica, seus principais fluxos e os créditos de desenvolvimento. A página `/sobre` é pública, assim como o calendário.
 
 | Perfil | O que pode fazer |
 | --- | --- |

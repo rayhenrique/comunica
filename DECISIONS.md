@@ -14,3 +14,7 @@ O usuário autorizou **Pest 4**, em substituição à versão 3 prevista no tít
 ## 13/10/2026 — refinamento visual
 
 Após a Etapa A, o usuário respondeu “pode executar a etapa B”, autorizando o pacote de UI-UX-AUDIT.md: cards mobile na triagem/histórico, compactação e acessibilidade de controles, calendário com título até 40px e seleção mobile, contornos/status, documentação e proteção da identidade. Paleta e fontes atuais preservadas; nenhuma fonte alternativa aplicada. Aprovação limitada a este pacote, com lógica, dados e permissões preservados; sem push automático.
+
+## 13/10/2026 — créditos, apresentação e instalação
+
+O usuário autorizou créditos para KL Tecnologia (kltecnologia.com), link/página Sobre, interface PT-BR, responsividade mobile-first e manual Hostinger/CloudPanel baseado nas imagens fornecidas. A navegação/rodapé e textos padronizados foram atualizados neste escopo, mantendo tokens, fontes, permissões e regras. A baseline visual deve ser revisada com essas alterações; não houve autorização para instalar ou modificar a VPS nesta solicitação.

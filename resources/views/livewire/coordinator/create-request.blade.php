@@ -14,7 +14,7 @@
             <div class="mt-2 rounded-control bg-background px-3 py-2"><p class="text-xs font-semibold text-muted">Término previsto</p><p class="mt-1 font-mono text-base" x-text="endPreview"></p><p class="mt-2 text-xs text-muted">Calculado automaticamente a partir da duração.</p></div></div>
             <x-ui.field name="form.location" label="Local do evento" wire:model.blur="form.location" maxlength="255" required />
             <x-ui.field name="form.target_audience" label="Público-alvo" wire:model.blur="form.target_audience" maxlength="255" required />
-            <div class="md:col-span-2"><x-ui.field name="form.description" label="Briefing / descrição" as="textarea" wire:model.blur="form.description" hint="Descreva o objetivo, o contexto e o apoio necessário. Apenas texto." /></div>
+            <div class="md:col-span-2"><x-ui.field name="form.description" label="Descrição do pedido" as="textarea" wire:model.blur="form.description" hint="Descreva o objetivo, o contexto e o apoio necessário. Apenas texto." /></div>
         </div>
         <x-ui.feedback />
         <div class="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">

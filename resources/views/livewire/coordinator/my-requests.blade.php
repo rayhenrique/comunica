@@ -6,11 +6,11 @@
     <div><x-ui.feedback :message="$feedback" /></div>
     <div class="panel mt-5">
         <div class="flex flex-wrap items-end gap-3 border-b border-border p-4">
-            <div class="w-full sm:w-60"><x-ui.field name="status" label="Filtrar por status" as="select" wire:model.live="status"><option value="">Todos os status</option>@foreach(\App\Support\EventLabels::statuses() as $key => $label)<option value="{{ $key }}">{{ $label }}</option>@endforeach</x-ui.field></div>
+            <div class="w-full sm:w-60"><x-ui.field name="status" label="Filtrar por situação" as="select" wire:model.live="status"><option value="">Todos os status</option>@foreach(\App\Support\EventLabels::statuses() as $key => $label)<option value="{{ $key }}">{{ $label }}</option>@endforeach</x-ui.field></div>
             @if($status !== '')<x-ui.button wire:click="$set('status', '')">Limpar filtro</x-ui.button>@endif
         </div>
         <div class="hidden overflow-x-auto md:block">
-            <table class="data-table"><caption class="sr-only">Histórico exclusivo das suas solicitações</caption><thead><tr><th scope="col">Evento / demanda</th><th scope="col">Data original</th><th scope="col">Data confirmada</th><th scope="col">Status</th><th scope="col">Ações</th></tr></thead>
+            <table class="data-table"><caption class="sr-only">Histórico exclusivo das suas solicitações</caption><thead><tr><th scope="col">Evento / demanda</th><th scope="col">Data original</th><th scope="col">Data confirmada</th><th scope="col">Situação</th><th scope="col">Ações</th></tr></thead>
                 <tbody>@forelse($requests as $event)<tr wire:key="request-{{ $event->id }}">
                     <td><p class="max-w-64 break-words font-semibold">{{ $event->title }}</p><p class="mt-1 text-xs text-muted">{{ \App\Support\EventLabels::demand($event->demand_type) }}</p></td>
                     <td class="whitespace-nowrap">{{ ($event->original_start_at ?? $event->start_at)->format('d/m/Y') }}<span class="mt-1 block font-mono text-xs text-muted">{{ ($event->original_start_at ?? $event->start_at)->format('H:i') }}</span></td>

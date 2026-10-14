@@ -1,6 +1,6 @@
 # Comunica
 
-Sistema institucional de solicitações de apoio à Comunicação e calendário público. **Versão 1.1.0**: MVP com as fases 1–6 concluídas e refinamento responsivo aprovado.
+Sistema institucional de solicitações de apoio à Comunicação e calendário público, desenvolvido pela [KL Tecnologia](https://kltecnologia.com). **Versão 1.2.0**: apresentação pública, créditos, interface PT-BR e guia de instalação na VPS.
 
 ## Funcionalidades
 
@@ -16,6 +16,7 @@ O MVP não inclui notificações externas, anexos, distribuição de tarefas da 
 | Documento | Conteúdo |
 | --- | --- |
 | [Manual do usuário](MANUAL-USUARIO.md) | Acesso e operação dos três perfis |
+| [Instalação Hostinger/CloudPanel](MANUAL-INSTALACAO-VPS.md) | Implantação na VPS, com as imagens fornecidas, HTTPS, banco, usuários e atualização |
 | [Histórico de versões](versoes.md) | Entregas e procedimento de versionamento |
 | [PRD](PRD.md) e [Escopo](MVP-SCOPE.md) | Requisitos e limites do MVP |
 | [Banco de dados](DATABASE-SCHEMA.md) | Tabelas, tipos e índices |
@@ -97,6 +98,7 @@ Se usar o Apache do WampServer, configure o DocumentRoot/VirtualHost para a past
 | Rota | Acesso |
 | --- | --- |
 | /calendario | Público |
+| /sobre | Apresentação pública do sistema e desenvolvimento |
 | /login | Entrada de usuários |
 | /solicitacoes/nova | Coordenador |
 | /solicitacoes | Histórico próprio; Comunicação segue para a triagem |
@@ -116,7 +118,7 @@ npm run design:check
 npm run design:test
 ```
 
-Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação do refinamento passou com **95 testes e 639 assertions**, além de sete verificações de proteção de design. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
+Pest 4 foi autorizado para compatibilidade com PHPUnit 12 e Laravel 13. Os testes PHPUnit anteriores foram preservados. A validação da versão 1.2.0 passou com **98 testes e 666 assertions**, além de sete verificações de proteção de design. phpunit.xml configura SQLite em memória, sessão e cache em array. Não direcione testes com RefreshDatabase ao banco MySQL que contém dados.
 
 A interface foi validada em Chrome no Windows, incluindo viewports mobile simulados. Não há certificação de acessibilidade, teste de carga ou validação em todos os navegadores. As evidências e limitações estão nos relatórios.
 
@@ -132,7 +134,7 @@ A interface foi validada em Chrome no Windows, incluindo viewports mobile simula
 
 ## Controle de versão
 
-O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão de referência é v1.1.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. A conferência final encontrou v1.1.0 já publicada por outra ação. Esta sessão não executou push; novas alterações só são enviadas com autorização.
+O Git utiliza a branch main e o remoto [rayhenrique/comunica](https://github.com/rayhenrique/comunica). A versão local de referência é v1.2.0; consulte versoes.md e `git tag --list` para as tags efetivamente criadas. v1.1.0 já está publicada; esta entrega 1.2.0 permanece local até autorização de envio.
 
 ```powershell
 git status --short
@@ -148,4 +150,4 @@ Faça backup do banco e do ambiente, obtenha a versão desejada, instale as depe
 
 ## Créditos
 
-Construído sobre Laravel e suas dependências. Consulte as licenças dos respectivos pacotes; este README não define uma licença institucional própria para o Comunica.
+Desenvolvimento: [KL Tecnologia](https://kltecnologia.com). Construído sobre Laravel e suas dependências. Consulte as licenças dos respectivos pacotes; este README não define uma licença institucional própria para o Comunica.

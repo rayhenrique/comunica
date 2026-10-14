@@ -1,7 +1,7 @@
 <section wire:poll.60s.visible>
     <div class="max-w-2xl"><p class="eyebrow">Agenda aberta à comunidade</p><h1 class="calendar-title mt-3">Calendário institucional</h1><p class="mt-4 text-base leading-7 text-muted">Acompanhe as ações confirmadas. Selecione um dia para consultar horários, locais e público-alvo.</p></div>
     <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <div><h2 class="text-2xl font-bold md:text-3xl">{{ ucfirst($monthStart->locale('pt_BR')->translatedFormat('F')) }} <span class="font-normal text-muted">{{ $year }}</span></h2><p class="mt-2 text-sm text-muted">{{ $this->events->count() }} pauta(s) confirmada(s) neste mês</p></div>
+        <div><h2 class="text-2xl font-bold md:text-3xl">{{ ucfirst($monthStart->locale('pt_BR')->translatedFormat('F')) }} <span class="font-normal text-muted">{{ $year }}</span></h2><p class="mt-2 text-sm text-muted">{{ trans_choice('messages.confirmed', $this->events->count(), ['count' => $this->events->count()]) }}</p></div>
         <div class="flex gap-2"><x-ui.button wire:click="previousMonth" aria-label="Mês anterior"><span aria-hidden="true">←</span></x-ui.button><x-ui.button wire:click="today">Mês atual</x-ui.button><x-ui.button wire:click="nextMonth" aria-label="Próximo mês"><span aria-hidden="true">→</span></x-ui.button></div>
     </div>
     <div><x-ui.feedback /></div>
@@ -9,10 +9,10 @@
         <div class="grid grid-cols-7 border-b border-border bg-background">@foreach(['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'] as $weekday)<div class="px-3 py-3 text-center text-xs font-semibold text-muted">{{ $weekday }}</div>@endforeach</div>
         <div class="grid grid-cols-7">
             @foreach($this->days as $day)
-                @if($day['inMonth'])<button type="button" class="calendar-cell" wire:key="day-{{ $day['date']->format('Y-m-d') }}" wire:click="selectDay('{{ $day['date']->format('Y-m-d') }}')" aria-label="{{ $day['date']->format('d/m/Y') }}, {{ $day['events']->count() }} evento(s)" aria-pressed="{{ $selectedDay === $day['date']->format('Y-m-d') ? 'true' : 'false' }}" @if($day['date']->isToday()) aria-current="date" @endif>
+                @if($day['inMonth'])<button type="button" class="calendar-cell" wire:key="day-{{ $day['date']->format('Y-m-d') }}" wire:click="selectDay('{{ $day['date']->format('Y-m-d') }}')" aria-label="{{ $day['date']->format('d/m/Y') }}, {{ trans_choice('messages.events', $day['events']->count(), ['count' => $day['events']->count()]) }}" aria-pressed="{{ $selectedDay === $day['date']->format('Y-m-d') ? 'true' : 'false' }}" @if($day['date']->isToday()) aria-current="date" @endif>
                     <span class="mb-1 inline-flex size-7 items-center justify-center self-start rounded-full text-sm font-semibold {{ $day['date']->isToday() ? 'bg-primary text-surface' : '' }}">{{ $day['date']->day }}</span>
                     @foreach($day['events']->take(2) as $event)<span class="event-strip" data-type="{{ $event->demand_type }}"><span class="block font-mono text-muted">{{ $event->formattedStartTime() }}</span><span class="event-title">{{ $event->title }}</span></span>@endforeach
-                    @if($day['events']->count() > 2)<span class="text-xs font-semibold text-primary">+ {{ $day['events']->count() - 2 }} pauta(s)</span>@endif
+                    @if($day['events']->count() > 2)<span class="text-xs font-semibold text-primary">{{ trans_choice('messages.additional', $day['events']->count() - 2, ['count' => $day['events']->count() - 2]) }}</span>@endif
                 </button>@else<div class="calendar-cell bg-background text-border"><span class="text-sm">{{ $day['date']->day }}</span></div>@endif
             @endforeach
         </div>
